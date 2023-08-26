@@ -56,9 +56,25 @@ jobs:
 ```
 * Don't forget to add the GHACTIONS_SSH secret at your projects secrets.
 
-5. Generate your Dockerfile.
+5. Generate your Dockerfile, an example can be:
+```Dockerfile
+FROM node:20
 
-6. Generate your Procfile.
+workdir /src/
+
+copy package*.json ./
+
+run npm install
+
+copy . .
+
+CMD ["npm", "start"]
+```
+
+6. Generate your Procfile, an example can be:
+```Procfile
+    web: node --watch main.js
+```
 
 7. At dokku, set your env config
 ```bash
