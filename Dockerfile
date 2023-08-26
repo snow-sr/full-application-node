@@ -25,8 +25,12 @@ EXPOSE 3000
 # Creates a "dist" folder with the production build
 RUN npm run build
 
+# Gen
+RUN npm run gen
+
 # Copy prisma schema
 RUN prisma generate
+
 RUN prisma db push
 
 # Start the server using the production build
