@@ -27,6 +27,7 @@ RUN npm run build
 
 # Copy prisma schema
 RUN prisma generate
+RUN prisma db push
 
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
