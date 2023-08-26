@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Req, Param } from '@nestjs/common';
+import { Controller, Get, Post, Req, Param, Patch, Delete } from '@nestjs/common';
 import { Request } from 'express';
 import { CatsService } from './cats.service';
 
@@ -7,12 +7,29 @@ export class CatsController {
     constructor(private readonly catsService: CatsService) { }
 
     @Get()
-    findAll(@Req() request: Request): string {
+    findAll(@Req() request: Request) {
         return this.catsService.findAll();
     }
 
     @Get(':id')
-    findOne(@Param() params: any): string {
+    findOne(@Param() params: any) {
         return this.catsService.findOne(params.id);
     }
+
+    @Post()
+    create(@Req() request: Request) {
+        return this.catsService.create(request.body);
+    }
+
+    @Patch(':id')
+    update(@Param() params: any, @Req() request: Request) {
+        return this.catsService.update(params.id, request.body);
+    }
+
+    @Delete(':id')
+    delete(@Param() params: any) {
+        return this.catsService.delete(params.id);
+    }
+
+
 }
