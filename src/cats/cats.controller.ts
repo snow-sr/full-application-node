@@ -1,15 +1,18 @@
 import { Controller, Get, Post, Req, Param } from '@nestjs/common';
 import { Request } from 'express';
+import { CatsService } from './cats.service';
 
 @Controller('cats')
 export class CatsController {
+    constructor(private readonly catsService: CatsService) { }
+
     @Get()
     findAll(@Req() request: Request): string {
-        return 'This action will returns all cats';
+        return this.catsService.findAll();
     }
 
     @Get(':id')
     findOne(@Param() params: any): string {
-        return `This action returns a #${params.id} cat`;
+        return this.catsService.findOne(params.id);
     }
 }
