@@ -12,23 +12,23 @@ export class CatsController {
     }
 
     @Get(':id')
-    findOne(@Param() params: any) {
-        return this.catsService.findOne(params.id);
+    async findOne(@Param() params: any) {
+        return await this.catsService.findOne(params.id);
     }
 
     @Post()
-    create(@Req() request: Request) {
-        return this.catsService.create(request.body);
+    async create(@Req() request: Request) {
+        return await this.catsService.create(request.body);
     }
 
     @Patch(':id')
-    update(@Param() params: any, @Req() request: Request) {
-        return this.catsService.update(params.id, request.body);
+    async update(@Param() params: any, @Req() request: Request) {
+        return await this.catsService.update(params.id, request.body);
     }
 
     @Delete(':id')
-    delete(@Param() params: any) {
-        return this.catsService.delete(params.id);
+    async delete(@Param() params: any) {
+        return await this.catsService.delete(params.id);
     }
 
 
