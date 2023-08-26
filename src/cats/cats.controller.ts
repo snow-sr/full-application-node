@@ -7,8 +7,8 @@ export class CatsController {
     constructor(private readonly catsService: CatsService) { }
 
     @Get()
-    findAll(@Req() request: Request) {
-        return this.catsService.findAll();
+    async findAll(@Req() request: Request) {
+        return await this.catsService.findAll();
     }
 
     @Get(':id')
