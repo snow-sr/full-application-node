@@ -31,7 +31,6 @@ RUN npm run gen
 # Copy prisma schema
 RUN prisma generate
 
-RUN prisma db push
 
 # Start the server using the production build
 CMD [ "npm", "run", "start:prod" ]
