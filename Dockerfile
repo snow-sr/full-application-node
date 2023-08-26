@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 #  Set environment variables
 ENV NODE_ENV production
 ENV DOKKU_PROXY_PORT_MAP http:80:3000
-
+ENV DATABASE_URL postgres://postgres:db6e5cdb9857a3c9d737c0c4d1f05d44@dokku-postgres-dbnestjs01:5432/dbnestjs01
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 
