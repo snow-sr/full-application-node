@@ -13,6 +13,9 @@ COPY package*.json ./
 # Install app dependencies
 RUN npm install
 
+# Install nest
+RUN npm install -g @nestjs/cli
+
 # Copy prisma schema
 RUN npx prisma generate
 
