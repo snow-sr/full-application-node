@@ -14,10 +14,7 @@ COPY package*.json ./
 RUN npm install
 
 # Install nest
-RUN npm install -g @nestjs/cli
-
-# Copy prisma schema
-RUN npx prisma generate
+RUN npm install -g @nestjs/cli prisma
 
 # Bundle app source
 COPY . .
@@ -27,6 +24,9 @@ EXPOSE 3000
 
 # Creates a "dist" folder with the production build
 RUN npm run build
+
+# Copy prisma schema
+RUN prisma generate
 
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
