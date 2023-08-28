@@ -29,4 +29,4 @@ RUN npm run build
 RUN prisma generate
 
 # Start the server using the production build
-CMD [ "node", "dist/main.js" ]
+CMD [ "npm", "run", "start:prod" ]
