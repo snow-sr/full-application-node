@@ -70,6 +70,7 @@ copy . .
 
 CMD ["npm", "start"]
 ```
+* Don't forget to add the DOKKU_PROXY_PORT_MAP env, and set it to your app port.
 
 6. Generate your Procfile, an example can be:
 ```Procfile
