@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 
 #  Set environment variables
 ENV NODE_ENV production
+ENV DOKKU_PROXY_PORT_MAP http:80:3000
 
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
